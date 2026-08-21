@@ -45,7 +45,7 @@ Usage: ./shodan-cli.sh COMMAND
    -nmap       Utilise script nmap
    -msf        Utilise module metasploit
    -ping       Ping classique
-   -geoping    Ping IP mondiale
+   -geoping    Ping IP shodan
  
 ─────────────────────────────────────────────────
                    🌐 Domaine                  
@@ -55,7 +55,7 @@ Usage: ./shodan-cli.sh COMMAND
    -resolve    Recherche DNS
    -domain     Recherche sous-domaine
    -dns        DNSlookup classique
-   -geodns     Recherche DNS mondiale
+   -geodns     Recherche DNS shodan
  
 ─────────────────────────────────────────────────
                    ℹ️ Info                  
