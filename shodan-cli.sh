@@ -36,8 +36,6 @@ if [[ "$*" == "-help" ]]; then
      echo "─────────────────────────────────────────────────"
      echo " "
      echo "   -ip         Recherche détails du service"
-     echo "   -nmap       Utilise script nmap"
-     echo "   -msf        Utilise module metasploit"
      echo "   -ping       Ping classique"
      echo "   -geoping    Ping IP mondiale"
      echo " "
@@ -114,23 +112,6 @@ if [[ "$*" == "-ip"* ]]; then
      fi
 fi
 
-#  a tester
-# Script nmap
-if [[ "$*" == "-nmap"* ]]; then
-     ipadd="$2"
-     nmap_ports=$(nmap --script shodan-api --script-args shodan-api.target=${ipadd},shodan-api.apikey=${api_key},shodan-api.outfile=${ipadd}.csv)
-     echo "[+] Ports: ${nmap_ports}"
-fi
-
-#  a tester
-# Module de metasploit
-if [[ "$*" == "-msf"* ]]; then
-     hote="$2"
-     msf_ports=$(msfconsole -q -x "auxiliary/gather/shodan_host; set RHOSTS ${hote}; set verbose true; set SHODAN_APIKEY ${api_key}; run; exit")
-     #${dir}/mapSploit/${hote}-snmp.txt"
-     echo "[+] Ports: ${msf_ports}"
-fi
-
 # Ping IP à partir de plusieurs emplacements dans le monde
 if [[ "$*" == "-geoping"* ]]; then
      ping_ip="$2"
@@ -145,20 +126,26 @@ if [[ "$*" == "-ping"* ]]; then
      mlr --ijson --ocsv cat ${PWD}/${ping}-ping.json >${PWD}/${ping}-ping.csv
 fi
 
+# Recuepre ip publique
+if [[ "$*" == "-myip" ]]; then
+     my_ip=$(curl -X GET https://api.shodan.io/tools/myip?key=${api_key} 2>/dev/null)
+     echo "[+] IP: ${my_ip}"
+fi
+
 #---------------------------------------------------------- Info ----------------------------------------------------------#
 
 # Info api
 if [[ "$*" == "-api-info" ]]; then
      curl -X GET https://api.shodan.io/api-info?key=${api_key} >${PWD}/api-info.json 2>/dev/null
      mlr --ijson --ocsv cat ${PWD}/api-info.json >${PWD}/api-info.csv
-     #echo ""
+     echo "💾 ${ip_dns} --> ${PWD}/api-info.csv"
 fi
 
 # Info profile
 if [[ "$*" == "-status" ]]; then
      curl -X GET https://api.shodan.io/account/profile?key=${api_key} >${PWD}/status.json 2>/dev/null
-     mlr --ijson --ocsv cat ${PWD}/status.json >${PWD}/status.csv
-     #echo ""
+     mlr --ijson --ocsv cat ${PWD}/status.json > ${PWD}/status.csv
+     echo "💾 ${ip_dns} --> ${PWD}/status.csv"
 fi
 
 #---------------------------------------------------------- Domaine ----------------------------------------------------------#
@@ -209,12 +196,8 @@ if [[ "$*" == "-dns"* ]]; then
 fi
 
 # Recherche DNS à partir de plusieurs emplacements dans le monde
-# mlr --ijson --ocsv cat geodns.json > geodns.csv
 if [[ "$*" == "-geodns"* ]]; then
      ip_dns="$2"
      curl https://geonet.shodan.io/api/geodns/${ip_dns} > ${PWD}/${ip_dns}-geodns.json 2>/dev/null
-     mlr --ijson --ocsv cat ${PWD}/${ip_dns}-geodns.json > ${PWD}/${ip_dns}-geodns.csv
-     echo "💾 ${ip_dns} --> ${PWD}/${ip_dns}-geodns.csv"
-     #dasel -f ${PWD}/${ip_dns}-geodns.json -r json -w csv | sed 's/\[//g; s/\]//g; s/ /;/g' > "${PWD}/${ip_dns}-geodns.csv"
+     echo "💾 ${ip_dns} --> ${PWD}/${ip_dns}-geodns.json"
 fi
-
