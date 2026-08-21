@@ -58,7 +58,7 @@ Usage: ./shodan-cli.sh COMMAND
    -geodns     Recherche DNS mondiale
  
 ─────────────────────────────────────────────────
-                   ℹ️  Info                  
+                   ℹ️ Info                  
 ─────────────────────────────────────────────────
  
    -myip       Affiche l'IP publique
