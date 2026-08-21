@@ -42,8 +42,6 @@ Usage: ./shodan-cli.sh COMMAND
 ─────────────────────────────────────────────────
  
    -ip         Recherche détails du service
-   -nmap       Utilise script nmap
-   -msf        Utilise module metasploit
    -ping       Ping classique
    -geoping    Ping IP shodan
  
