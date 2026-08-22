@@ -37,6 +37,7 @@ if [[ "$*" == "-help" ]]; then
      echo " "
      echo "   -ip         Recherche détails du service"
      echo "   -msf        Utilise module metasploit"
+     echo "   -nmap       Utilise script nmap"
      echo "   -ping       Ping classique"
      echo "   -geoping    Ping IP mondiale"
      echo " "
@@ -114,7 +115,15 @@ if [[ "$*" == "-ip"* ]]; then
      fi
 fi
 
-# Module de metasploit
+# Script nmap
+if [[ "$*" == "-nmap"* ]]; then
+     ipadd="$2"
+     nmap_ports=$(nmap --script shodan-api --script-args shodan-api.target=${ipadd},shodan-api.apikey=${api_key},shodan-api.outfile=${ipadd}.csv 2>/dev/null)
+     clean=$(echo "${nmap_ports}" | grep "^|" | grep -Ev "Shodan|shodan|PORT.*PROTO|_" | sed 's/^| //' | awk '{print "[+] " $1 "/" $2 " --> "$3 $4}')
+     echo "${clean}"
+fi
+
+# Module metasploit
 if [[ "$*" == "-msf"* ]]; then
      hote="$2"
      msf_ports=$(msfconsole -q -x "use auxiliary/gather/shodan_host; set RHOSTS ${hote}; set verbose true; set SHODAN_APIKEY ${api_key}; run; exit")
