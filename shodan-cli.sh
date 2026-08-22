@@ -54,6 +54,7 @@ if [[ "$*" == "-help" ]]; then
      echo "                   ℹ️  Info                  "
      echo "─────────────────────────────────────────────────"
      echo " "
+     echo "   -help       Affiche les commandes"
      echo "   -myip       Affiche l'IP publique"
      echo "   -status     Info du compte"
      echo "   -api-info   Info API"
