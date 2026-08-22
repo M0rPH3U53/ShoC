@@ -121,6 +121,8 @@ if [[ "$*" == "-nmap"* ]]; then
      nmap_ports=$(nmap --script shodan-api --script-args shodan-api.target=${ipadd},shodan-api.apikey=${api_key},shodan-api.outfile=${ipadd}.csv 2>/dev/null)
      clean=$(echo "${nmap_ports}" | grep "^|" | grep -Ev "Shodan|shodan|PORT.*PROTO|_" | sed 's/^| //' | awk '{print "[+] " $1 "/" $2 " --> "$3 $4}')
      echo "${clean}"
+     echo " "
+     echo "📋 Rapport --> ${PWD}/${ipadd}.csv" 
 fi
 
 # Module metasploit
