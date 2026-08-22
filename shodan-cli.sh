@@ -36,6 +36,7 @@ if [[ "$*" == "-help" ]]; then
      echo "─────────────────────────────────────────────────"
      echo " "
      echo "   -ip         Recherche détails du service"
+     echo "   -host       Recherche détails service (no api)"
      echo "   -msf        Utilise module metasploit"
      echo "   -nmap       Utilise script nmap"
      echo "   -ping       Ping classique"
@@ -99,7 +100,7 @@ fi
 
 #---------------------------------------------------------- Host ----------------------------------------------------------#
 
-# Recupere les info de l'ip
+# Recherche détails de service (api)
 if [[ "$*" == "-ip"* ]]; then
 
      error=(*'"error"'*)
@@ -111,6 +112,23 @@ if [[ "$*" == "-ip"* ]]; then
      else
           echo "💾 ${ipaddres} info --> ${PWD}/${ipaddres}.json"
           echo "${hostn}" >"${PWD}/${ipaddres}.json"
+
+     fi
+fi
+
+# Recherche détails de service (no api)
+if [[ "$*" == "-host"* ]]; then
+
+     user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.2277.83"
+     ip_pub="$2"
+     url=$(curl -A "${user_agent}" https://www.shodan.io/host/${ip_pub} 2>/dev/null)
+     no_info=$(echo "${url}" | grep "No information")
+
+     if [[ -n "${no_info}" ]]; then
+          echo "[-] No data ${ip_pub} !"
+     else
+          echo "💾 ${ip_pub} info --> ${PWD}/${ip_pub}.html"
+          echo "${url}" >"${PWD}/${ip_pub}-host.html"
 
      fi
 fi
@@ -146,7 +164,7 @@ if [[ "$*" == "-ping"* ]]; then
      mlr --ijson --ocsv cat ${PWD}/${ping}-ping.json >${PWD}/${ping}-ping.csv
 fi
 
-# Recuepre ip publique
+# Recupere ip publique
 if [[ "$*" == "-myip" ]]; then
      my_ip=$(curl -X GET https://api.shodan.io/tools/myip?key=${api_key} 2>/dev/null)
      echo "[+] IP: ${my_ip}"
@@ -170,7 +188,7 @@ fi
 
 #---------------------------------------------------------- Domaine ----------------------------------------------------------#
 
-# Info Domaine
+# Details domaine
 if [[ "$*" == "-domain"* ]]; then
      dns="$2"
      domaine=$(curl -X GET https://api.shodan.io/dns/domain/${dns}?key=${api_key} 2>/dev/null)
