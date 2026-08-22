@@ -42,6 +42,7 @@ Usage: ./shodan-cli.sh COMMAND
 ─────────────────────────────────────────────────
  
    -ip         Recherche détails du service
+   -msf        Utilise module metasploit
    -ping       Ping classique
    -geoping    Ping IP shodan
  
@@ -58,7 +59,8 @@ Usage: ./shodan-cli.sh COMMAND
 ─────────────────────────────────────────────────
                    ℹ️ Info                  
 ─────────────────────────────────────────────────
- 
+
+   -help       Affiche les commandes
    -myip       Affiche l'IP publique
    -status     Info du compte
    -api-info   Info API
