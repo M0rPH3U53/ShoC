@@ -27,7 +27,7 @@ Shodan en ligne de commande basé sur leurs API
                by M0rPH3U53
 
  
-Usage: ./shodan-cli.sh COMMAND
+Usage: ./ShoC.sh COMMAND
  
 ─────────────────────────────────────────────────
                    💀 CVEs                  
