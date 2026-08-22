@@ -112,6 +112,13 @@ if [[ "$*" == "-ip"* ]]; then
      fi
 fi
 
+# Module de metasploit
+if [[ "$*" == "-msf"* ]]; then
+     hote="$2"
+     msf_ports=$(msfconsole -q -x "use auxiliary/gather/shodan_host; set RHOSTS ${hote}; set verbose true; set SHODAN_APIKEY ${api_key}; run; exit")
+     echo "${msf_ports}" | grep '[+]'
+fi
+
 # Ping IP à partir de plusieurs emplacements dans le monde
 if [[ "$*" == "-geoping"* ]]; then
      ping_ip="$2"
