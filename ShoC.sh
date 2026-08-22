@@ -20,7 +20,7 @@ EOF
 if [[ "$*" == "-help" ]]; then
      ban
      echo " "
-     echo "Usage: ./shodan-cli.sh COMMAND"
+     echo "Usage: ./ShoC.sh COMMAND"
      echo " "
      echo "─────────────────────────────────────────────────"
      echo "                   💀 CVEs                  "
