@@ -41,7 +41,8 @@ Usage: ./shodan-cli.sh COMMAND
                    🏠 Host                  
 ─────────────────────────────────────────────────
  
-   -ip         Recherche détails du service
+   -ip         Recherche info services
+   -host       Recherche info services (no api)
    -msf        Utilise module metasploit
    -nmap       Utilise script nmap
    -ping       Ping classique
