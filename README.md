@@ -14,7 +14,7 @@ Shodan en ligne de commande basé sur leurs API
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
-└──╼ $./shodan-cli.sh -help
+└──╼ $./ShoC.sh -help
                                                                 
       ::::::::  :::    :::  ::::::::   :::::::: 
     :+:    :+: :+:    :+: :+:    :+: :+:    :+: 
