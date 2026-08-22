@@ -36,6 +36,7 @@ if [[ "$*" == "-help" ]]; then
      echo "─────────────────────────────────────────────────"
      echo " "
      echo "   -ip         Recherche détails du service"
+     echo "   -msf        Utilise module metasploit"
      echo "   -ping       Ping classique"
      echo "   -geoping    Ping IP mondiale"
      echo " "
