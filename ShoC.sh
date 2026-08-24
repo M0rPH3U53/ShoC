@@ -101,6 +101,7 @@ fi
 #---------------------------------------------------------- Host ----------------------------------------------------------#
 
 # Recherche détails de service (api)
+# IP info (api)
 if [[ "$*" == "-ip"* ]]; then
 
      error=(*'"error"'*)
@@ -110,8 +111,12 @@ if [[ "$*" == "-ip"* ]]; then
      if [[ ${hostn} == ${error} ]]; then
           echo "[-] No data ${ipaddres} !"
      else
-          echo "💾 ${ipaddres} info --> ${PWD}/${ipaddres}.json"
-          echo "${hostn}" >"${PWD}/${ipaddres}.json"
+          echo "[+] Info"
+          echo " "
+          echo "${hostn}" | jq -r '"IP: \(.ip_str)\nPorts: \(.ports | join(", "))"'
+          echo " "
+          echo "💾 ${ipaddres} + d'info --> ${PWD}/${ipaddres}.json"
+          echo "${hostn}" > "${PWD}/${ipaddres}.json"
 
      fi
 fi
@@ -150,18 +155,18 @@ if [[ "$*" == "-msf"* ]]; then
      echo "${msf_ports}" | grep '[+]'
 fi
 
-# Ping IP à partir de plusieurs emplacements dans le monde
+# Ping IP (avec les sonde shodan)
 if [[ "$*" == "-geoping"* ]]; then
      ping_ip="$2"
-     curl https://geonet.shodan.io/api/geoping/${ping_ip} >${PWD}/${ping_ip}-geoping.json 2>/dev/null
-     mlr --ijson --ocsv cat ${PWD}/${ping_ip}-geoping.json >${PWD}/${ping_ip}-geoping.csv
+     geoping_result=$(curl https://geonet.shodan.io/api/geoping/${ping_ip} 2>/dev/null)
+     echo "${geoping_result}" | jq -r '(["IP","Ville","Pays","Alive","Min RTT","Avg RTT","Max RTT","Envoyés","Reçus","Perdu"], (.[] | [.ip,.from_loc.city,.from_loc.country,(.is_alive|tostring),(.min_rtt|tostring)+" ms",(.avg_rtt|tostring)+" ms",(.max_rtt|tostring)+" ms",(.packets_sent|tostring),(.packets_received|tostring),(.packet_loss|tostring)+"%"])) | @tsv' | column -t -s $'\t'
 fi
 
 # Ping classique
 if [[ "$*" == "-ping"* ]]; then
      ping="$2"
-     curl https://geonet.shodan.io/api/ping/${ping} >${PWD}/${ping}-ping.json 2>/dev/null
-     mlr --ijson --ocsv cat ${PWD}/${ping}-ping.json >${PWD}/${ping}-ping.csv
+     pingg=$(curl https://geonet.shodan.io/api/ping/${ping} 2>/dev/null)
+     echo "${pingg}" | jq -r '(["IP","Ville","Pays","Alive","Min RTT","Avg RTT","Max RTT","Envoyés","Reçus","Perdu"], [.ip,.from_loc.city,.from_loc.country,(.is_alive|tostring),(.min_rtt|tostring)+" ms",(.avg_rtt|tostring)+" ms",(.max_rtt|tostring)+" ms",(.packets_sent|tostring),(.packets_received|tostring),(.packet_loss|tostring)+"%"]) | @tsv' | column -t -s $'\t'
 fi
 
 # Recupere ip publique
