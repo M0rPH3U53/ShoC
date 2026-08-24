@@ -60,7 +60,7 @@ Usage: ./ShoC COMMAND
    -geodns     Recherche DNS (shodan)
  
 ─────────────────────────────────────────────────
-                   ℹ️  Info                  
+                   ℹ️ Info                  
 ─────────────────────────────────────────────────
  
    -myip       Affiche l'IP publique
