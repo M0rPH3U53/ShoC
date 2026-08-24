@@ -85,8 +85,6 @@ Ports: 443, 8443, 53, 853
 💾 9.9.9.9 + d'info --> /home/m0rph3u5/Scripts/ShoC/9.9.9.9.json
 ```
 
-&nbsp;
-
 ### Nmap
 
 ```
@@ -131,8 +129,6 @@ IP       Ville              Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés 
 8.8.8.8  Frankfurt am Main  DE    true   0.967 ms  1.351 ms  2.014 ms  3        3      0.0%
 8.8.8.8  Singapore          SG    true   0.972 ms  1.392 ms  2.21 ms   3        3      0.0%
 ```
-
-&nbsp;
 
 ### Ping
 
