@@ -10,7 +10,7 @@ Shodan en ligne de commande basé sur leurs API
 └──╼ $sudo apt install curl nmap metasploit-framework dasel jq
 ```
 
-## ⚙️ Commande
+## ⚙️ Commandes
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
