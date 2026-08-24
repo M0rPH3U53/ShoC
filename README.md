@@ -76,7 +76,7 @@ Usage: ./ShoC COMMAND
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
-└──╼ $./ShoCi.sh -ip 9.9.9.9
+└──╼ $./ShoC.sh -ip 9.9.9.9
 [+] Info
  
 IP: 9.9.9.9
@@ -89,7 +89,7 @@ Ports: 443, 8443, 53, 853
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts/ShoC]
-└──╼ $./ShoCi.sh -nmap 1.1.1.1
+└──╼ $./ShoC.sh -nmap 1.1.1.1
 [+] 53/tcp --> 
 [+] 53/udp --> 
 [+] 80/tcp --> CloudFlare
@@ -110,7 +110,7 @@ Ports: 443, 8443, 53, 853
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts/ShoC]
-└──╼ $./ShoCi.sh -msf 9.9.9.9
+└──╼ $./ShoC.sh -msf 9.9.9.9
 [+] 9.9.9.9:443
 [+] 9.9.9.9:8443
 [+] 9.9.9.9:53
@@ -121,7 +121,7 @@ Ports: 443, 8443, 53, 853
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
-└──╼ $./ShoCi.sh -geoping 8.8.8.8
+└──╼ $./ShoC.sh -geoping 8.8.8.8
 IP       Ville              Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés  Reçus  Perdu
 8.8.8.8  Clifton            US    true   0.993 ms  1.344 ms  2.004 ms  3        3      0.0%
 8.8.8.8  Amsterdam          NL    true   0.382 ms  0.836 ms  1.705 ms  3        3      0.0%
@@ -134,7 +134,7 @@ IP       Ville              Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés 
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
-└──╼ $./ShoCi.sh -ping 1.1.1.1
+└──╼ $./ShoC.sh -ping 1.1.1.1
 IP       Ville        Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés  Reçus  Perdu
 1.1.1.1  Santa Clara  US    true   1.223 ms  1.737 ms  2.342 ms  3        3      0.0%
 ```
