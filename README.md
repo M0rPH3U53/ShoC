@@ -138,3 +138,36 @@ IP       Ville              Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés 
 IP       Ville        Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés  Reçus  Perdu
 1.1.1.1  Santa Clara  US    true   1.223 ms  1.737 ms  2.342 ms  3        3      0.0%
 ```
+### API info
+
+```
+┌─[m0rph3u5@parrot]─[~/Scripts]
+└──╼ $./ShoC.sh -api-info
+Plan : oss
+Crédits scan : 0
+Crédits requête : 0
+IPs surveillées : 0
+HTTPS : false
+Telnet : false
+Déverrouillé : false
+```
+
+### Status
+
+```
+┌─[m0rph3u5@parrot]─[~/Scripts]
+└──╼ $./ShoC.sh -status
+Menbre : false
+Credits : 0
+User : test
+Display name : null
+Créé : 2020-07-02T09:32:24.088000
+```
+
+### Myip
+
+```
+┌─[m0rph3u5@parrot]─[~/Scripts]
+└──╼ $./ShoC.sh -myip
+IP: "185.191.239.248"
+```
