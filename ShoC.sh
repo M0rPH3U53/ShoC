@@ -169,26 +169,24 @@ if [[ "$*" == "-ping"* ]]; then
      echo "${pingg}" | jq -r '(["IP","Ville","Pays","Alive","Min RTT","Avg RTT","Max RTT","Envoyés","Reçus","Perdu"], [.ip,.from_loc.city,.from_loc.country,(.is_alive|tostring),(.min_rtt|tostring)+" ms",(.avg_rtt|tostring)+" ms",(.max_rtt|tostring)+" ms",(.packets_sent|tostring),(.packets_received|tostring),(.packet_loss|tostring)+"%"]) | @tsv' | column -t -s $'\t'
 fi
 
-# Recupere ip publique
-if [[ "$*" == "-myip" ]]; then
-     my_ip=$(curl -X GET https://api.shodan.io/tools/myip?key=${api_key} 2>/dev/null)
-     echo "[+] IP: ${my_ip}"
-fi
-
 #---------------------------------------------------------- Info ----------------------------------------------------------#
 
 # Info api
 if [[ "$*" == "-api-info" ]]; then
-     curl -X GET https://api.shodan.io/api-info?key=${api_key} >${PWD}/api-info.json 2>/dev/null
-     mlr --ijson --ocsv cat ${PWD}/api-info.json >${PWD}/api-info.csv
-     echo "💾 ${ip_dns} --> ${PWD}/api-info.csv"
+     api_info=$(curl -X GET https://api.shodan.io/api-info?key=${api_key}  2>/dev/null)
+     echo "${api_info}" | jq -r '"Plan : \(.plan)", "Crédits scan : \(.scan_credits)", "Crédits requête : \(.query_credits)", "IPs surveillées : \(.monitored_ips)", "HTTPS : \(.https)", "Telnet : \(.telnet)", "Déverrouillé : \(.unlocked)"'
 fi
 
 # Info profile
 if [[ "$*" == "-status" ]]; then
-     curl -X GET https://api.shodan.io/account/profile?key=${api_key} >${PWD}/status.json 2>/dev/null
-     mlr --ijson --ocsv cat ${PWD}/status.json > ${PWD}/status.csv
-     echo "💾 ${ip_dns} --> ${PWD}/status.csv"
+     info_compte=$(curl -X GET https://api.shodan.io/account/profile?key=${api_key} 2>/dev/null)
+     echo "${info_compte}" | jq -r '"Membre : \(.member)", "Credits : \(.credits)", "User : \(.username)", "Display name : \(.display_name)", "Créé : \(.created)"'
+fi
+
+# Recupere ip publique
+if [[ "$*" == "-myip" ]]; then
+     my_ip=$(curl -X GET https://api.shodan.io/tools/myip?key=${api_key} 2>/dev/null)
+     echo "[+] IP: ${my_ip}"
 fi
 
 #---------------------------------------------------------- Domaine ----------------------------------------------------------#
