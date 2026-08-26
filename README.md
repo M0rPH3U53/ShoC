@@ -3,6 +3,25 @@
 Shodan en ligne de commande basé sur leurs API
 
 
+| Outils | URL |
+| --- | --- | --- |
+| <span style="color: #dddddd;">💥</span> Metasploit | https://www.metasploit.com |
+| <span style="color: #dddddd;">👁️</span> Nmap | https://nmap.org |
+| <span style="color: #dddddd;">🌐</span> curl | https://github.com/curl/curl |
+
+## 🔌 Shodan API
+
+| APIs | Descriptions |
+| --- | --- |
+| https://cvedb.shodan.io | Permet de vérifier les infos sur les vulnérabilités d’un service |
+| --- | --- |
+| https://geonet.shodan.io | Utilise des outils réseau à partir de serveurs mondiale |
+| --- | --- |
+| https://internetdb.shodan.io | Fournit les ports ouvert et vulnérabilités si disponible |
+| --- | --- |
+| https://developer.shodan.io/api | API shodan par defaut |
+| --- | --- |
+
 ## 🚀 Installation
 
 ```
