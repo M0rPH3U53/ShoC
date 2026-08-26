@@ -171,3 +171,40 @@ Créé : 2020-07-02T09:32:24.088000
 └──╼ $./ShoC.sh -myip
 IP: "185.191.239.248"
 ```
+### Domain
+
+```
+┌─[m0rph3u5@parrot]─[~/Scripts]
+└──╼ $./ShoC.sh -domain
+SUBDOMAIN                                                    TYPE  TTL  IP               LAST_SEEN
+google.com                                                   A     300  142.250.101.100  2026-08-24T22:49:59.098000
+google.com                                                   A     300  142.250.101.101  2026-08-24T22:49:59.098000
+google.com                                                   A     300  142.250.101.102  2026-08-24T22:49:59.098000
+google.com                                                   A     300  142.250.101.113  2026-08-24T22:49:59.098000
+0-preprod-dynamite-gamma-us-signaler-pa.clients6.google.com  A     300  142.251.111.95   2026-07-27T00:57:28.372000
+0-preprod-dynamite-gamma-us-signaler-pa.clients6.google.com  A     300  142.251.2.95     2026-08-20T22:23:52.459000
+0-preprod-dynamite-gamma-us-signaler-pa.clients6.google.com  A     300  142.251.210.138  2026-08-14T15:54:07.313000
+0-preprod-dynamite-gamma-us-signaler-pa.clients6.google.com  A     300  142.251.214.106  2026-08-20T01:09:37.426000
+0.client-channel.google.com                                  A     300  142.250.141.189  2026-08-25T10:29:49.304000
+0.client-channel.google.com                                  A     300  142.250.142.189  2026-08-24T19:03:02.493000
+0.client-channel.google.com                                  A     300  142.251.188.189  2026-08-07T22:04:03.168000
+0.client-channel.google.com                                  A     300  142.251.2.189    2026-08-24T22:16:24.962000
+preprod-dynamite-gamma-us-signaler-pa.clients6.google.com    A     300  142.251.218.138  2026-08-24T02:49:04.724000
+1-preprod-dynamite-gamma-us-signaler-pa.clients6.google.com  A     300  142.251.218.170  2026-08-25T07:05:29.241000
+1-preprod-dynamite-gamma-us-signaler-pa.clients6.google.com  A     300  142.251.218.202  2026-08-21T13:18:17.714000
+1-preprod-dynamite-gamma-us-signaler-pa.clients6.google.com  A     300  142.251.218.234  2026-08-24T04:15:15.853000
+00jhl9.feedproxy.ghs.google.com                              A     300  142.251.41.19    2026-08-18T04:23:28.873000
+100jhl9.feedproxy.ghs.google.com                             A     300  142.251.45.19    2026-08-23T01:08:03.625000
+100jhl9.feedproxy.ghs.google.com                             A     300  172.253.62.121   2026-08-16T22:15:09.717000
+100jhl9.feedproxy.ghs.google.com                             A     300  192.178.142.121  2026-08-24T21:07:12.178000
+100jhl9.feedproxy.ghs.google.com                             A     300  74.125.137.121   2026-08-25T01:06:34.634000
+
+```
+
+### Reverse DNS
+
+```
+┌─[m0rph3u5@parrot]─[~/Scripts]
+└──╼ $./shodan-cli.sh -reverse 8.8.8.8
+8.8.8.8: dns.google
+```
