@@ -90,7 +90,7 @@ Usage: ./ShoC COMMAND
 
 ## 👁️ Demo
 
-### Search
+### Search CVE
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
