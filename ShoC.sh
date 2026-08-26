@@ -112,9 +112,9 @@ if [[ "$*" == "-ip"* ]]; then
      else
           echo "[+] Info"
           echo " "
-          echo "${hostn}" | jq -r '"IP: \(.ip_str)\nPorts: \(.ports | join(", "))"'
+          echo "${hostn}" | jq -r '"IP: \(.ip_str)\nDomains: \(.domains | join(", "))\nHostnames: \(.hostnames | join(", "))\nPorts: \(.ports | join(", "))"'
           echo " "
-          echo "💾 ${ipaddres} + d'info --> ${PWD}/${ipaddres}.json"
+          echo "[+] ${ipaddres} + d'info --> ${PWD}/${ipaddres}.json"
           echo "${hostn}" > "${PWD}/${ipaddres}.json"
 
      fi
