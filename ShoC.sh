@@ -207,7 +207,7 @@ if [[ "$*" == "-reverse"* ]]; then
      if [[ ${domaine_reverse} == ${error} ]]; then
           echo "[-] No reverse ${dns_reverse} !"
      else
-          echo "${dns_reverse}" | jq -r 'to_entries[] | "\(.key): \(.value)"'
+          echo "${domaine_reverse}" | jq -r 'to_entries[] | .value[] as $dns | "\(.key): \($dns)"'
      fi
 fi
 
