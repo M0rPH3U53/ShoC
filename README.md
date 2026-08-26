@@ -175,7 +175,7 @@ IP: "185.191.239.248"
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
-└──╼ $./ShoC.sh -domain
+└──╼ $./ShoC.sh -domain google.com
 SUBDOMAIN                                                    TYPE  TTL  IP               LAST_SEEN
 google.com                                                   A     300  142.250.101.100  2026-08-24T22:49:59.098000
 google.com                                                   A     300  142.250.101.101  2026-08-24T22:49:59.098000
@@ -205,6 +205,6 @@ preprod-dynamite-gamma-us-signaler-pa.clients6.google.com    A     300  142.251.
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
-└──╼ $./shodan-cli.sh -reverse 8.8.8.8
+└──╼ $./ShoC.sh -reverse 8.8.8.8
 8.8.8.8: dns.google
 ```
