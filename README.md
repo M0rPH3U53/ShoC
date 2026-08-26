@@ -3,7 +3,7 @@
 Shodan en ligne de commande basé sur leurs API
 
 
-| Outils | URL |
+| Outils | URLs |
 | --- | --- |
 | <span style="color: #dddddd;">💥</span> Metasploit | https://www.metasploit.com |
 | <span style="color: #dddddd;">🌐</span> curl | https://github.com/curl/curl | 
