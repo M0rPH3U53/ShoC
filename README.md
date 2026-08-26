@@ -9,7 +9,8 @@ Shodan en ligne de commande basé sur leurs API
 | <span style="color: #dddddd;">👁️</span> Nmap | https://nmap.org |
 | <span style="color: #dddddd;">🌐</span> curl | https://github.com/curl/curl |
 
-## 🛰️ Shodan API
+## 🛰️ API
+Liste des API utiliser par Shodan dans ce script
 
 | APIs | Descriptions |
 | --- | --- |
