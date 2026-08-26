@@ -101,7 +101,6 @@ fi
 #---------------------------------------------------------- Host ----------------------------------------------------------#
 
 # Recherche détails de service (api)
-# IP info (api)
 if [[ "$*" == "-ip"* ]]; then
 
      error=(*'"error"'*)
@@ -195,8 +194,7 @@ fi
 if [[ "$*" == "-domain"* ]]; then
      dns="$2"
      domaine=$(curl -X GET https://api.shodan.io/dns/domain/${dns}?key=${api_key} 2>/dev/null)
-     echo "💾 ${dns} info --> ${PWD}/${dns}.json"
-     echo "${domaine}" >"${PWD}/${dns}.json"
+     echo "${domaine}" | jq -r '.domain as $domain | (["SUBDOMAIN","TYPE","TTL","IP","LAST_SEEN"], (.data[] | [((.subdomain + "." + $domain) | ltrimstr(".")),.type,.options.ttl,.value,.last_seen])) | @tsv' | column -t -s $'\t'
 fi
 
 # Reverse DNS
@@ -209,8 +207,7 @@ if [[ "$*" == "-reverse"* ]]; then
      if [[ ${domaine_reverse} == ${error} ]]; then
           echo "[-] No reverse ${dns_reverse} !"
      else
-          echo "💾 ${dns_reverse} info --> ${PWD}/${dns_reverse}-dns-reverse.json"
-          echo "${domaine_reverse}" >"${PWD}/${dns_reverse}-dns-reverse.json"
+          echo "${dns_reverse}" | jq -r 'to_entries[] | "\(.key): \(.value)"'
      fi
 fi
 
