@@ -98,9 +98,11 @@ Usage: ./ShoC COMMAND
 [+] Info
  
 IP: 9.9.9.9
+Domains: quad9.net
+Hostnames: dns9.quad9.net
 Ports: 443, 8443, 53, 853
  
-💾 9.9.9.9 + d'info --> /home/m0rph3u5/Scripts/ShoC/9.9.9.9.json
+[+] 9.9.9.9 + d'info --> /home/m0rph3u5/Scripts/ShoC/9.9.9.9.json
 ```
 
 ### Nmap
