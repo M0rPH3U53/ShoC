@@ -86,7 +86,6 @@ if [[ "$*" == "-search"* ]]; then
      if [[ ${cve_db} == ${no_info} ]]; then
           echo "[-] No found ${cve} !"
      else
-          echo " "
           echo "${cve_db}" | jq -r '"CVE ID: \(.cve_id)", "CVSS: \(.cvss)", "", "Description:", .euvd.description, "", "References:", (.euvd.references[] | "- \(.)")'
      fi
 fi
