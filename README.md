@@ -95,7 +95,6 @@ Usage: ./ShoC COMMAND
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
 └──╼ $./ShoC.sh -search CVE-2026-41651
- 
 CVE ID: CVE-2026-41651
 CVSS: 8.8
 
