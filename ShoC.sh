@@ -77,11 +77,18 @@ if [[ "$*" == "-vulns"* ]]; then
 fi
 
 # Cherche les cve dans la base shodan
-if [[ "$*" == "-search"* ]]; then
+if [[ "$*" == "-search"* ]]; then   
+
+     no_info=(*"No information available"*)
      cve="$2"
-     curl https://cvedb.shodan.io/cve/${cve} >${PWD}/${cve}.json 2>/dev/null
-     echo "[+] CVE found !"
-     echo "💾 Info ${cve} --> ${PWD}/${cve}.json"
+     cve_db=$(curl https://cvedb.shodan.io/cve/${cve} 2>/dev/null)
+     
+     if [[ ${cve_db} == ${no_info} ]]; then
+          echo "[-] No found ${cve} !"
+     else
+          echo " "
+          echo "${cve_db}" | jq -r '"CVE ID: \(.cve_id)", "CVSS: \(.cvss)", "", "Description:", .euvd.description, "", "References:", (.euvd.references[] | "- \(.)")'
+     fi
 fi
 
 # Recupere la liste des CVE les plus recente
