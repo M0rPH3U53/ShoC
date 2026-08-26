@@ -185,7 +185,7 @@ fi
 # Recupere ip publique
 if [[ "$*" == "-myip" ]]; then
      my_ip=$(curl -X GET https://api.shodan.io/tools/myip?key=${api_key} 2>/dev/null)
-     echo "[+] IP: ${my_ip}"
+     echo "${my_ip}" | jq -r '.'
 fi
 
 #---------------------------------------------------------- Domaine ----------------------------------------------------------#
