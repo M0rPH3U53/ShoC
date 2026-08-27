@@ -198,9 +198,16 @@ fi
 
 # Details domaine
 if [[ "$*" == "-domain"* ]]; then
+
+     error=(*'"error"'*)
      dns="$2"
      domaine=$(curl -X GET https://api.shodan.io/dns/domain/${dns}?key=${api_key} 2>/dev/null)
-     echo "${domaine}" | jq -r '.domain as $domain | (["SUBDOMAIN","TYPE","TTL","IP","LAST_SEEN"], (.data[] | [((.subdomain + "." + $domain) | ltrimstr(".")),.type,.options.ttl,.value,.last_seen])) | @tsv' | column -t -s $'\t'
+
+     if [[ ${domaine} == ${error} ]]; then
+          echo "[-] No domain found !"
+     else
+          echo "${domaine}" | jq -r '.domain as $domain | (["SUBDOMAIN","TYPE","TTL","IP","LAST_SEEN"], (.data[] | [((.subdomain + "." + $domain) | ltrimstr(".")),.type,.options.ttl,.value,.last_seen])) | @tsv' | column -t -s $'\t'
+     fi
 fi
 
 # Reverse DNS
