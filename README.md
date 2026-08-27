@@ -134,6 +134,8 @@ Ports: 443, 8443, 53, 853
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts/ShoC]
 └──╼ $./ShoC.sh -nmap 1.1.1.1
+🌐 Port & services
+
 [+] 53/tcp --> 
 [+] 53/udp --> 
 [+] 80/tcp --> CloudFlare
