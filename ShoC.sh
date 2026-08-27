@@ -225,18 +225,18 @@ if [[ "$*" == "-resolve"* ]]; then
      domaine_resolve=$(curl -X GET "https://api.shodan.io/dns/resolve?hostnames=${dns_resolve}&key=${api_key}" 2>/dev/null)
 
      if [[ ${domaine_resolve} == ${error} ]]; then
-          echo "[-] No resolve ${dns_reverse} !"
+          echo "[-] No resolve ${dns_resolve} !"
      else
-          echo "💾 ${dns_resolve} info --> ${PWD}/${dns_resolve}-dns-resolve.json"
-          echo "${domaine_resolve}" >"${PWD}/${dns_resolve}-dns-resolve.json"
+          echo "${domaine_resolve}" | jq -r 'to_entries[] | "\(.key): \(.value)"'
+
      fi
 fi
 
 # Info dns
 if [[ "$*" == "-dns"* ]]; then
      dns="$2"
-     curl https://geonet.shodan.io/api/dns/${dns} >${PWD}/${dns}-dns.json 2>/dev/null
-     mlr --ijson --ocsv cat ${PWD}/${dns}-dns.json >${PWD}/${dns}-dns.csv
+     result=$(curl https://geonet.shodan.io/api/dns/${dns} 2>/dev/null)
+     echo "${result}" | jq -r '.answers[] | "\(.type): \(.value)"'
 fi
 
 # Recherche DNS à partir de plusieurs emplacements dans le monde
