@@ -252,3 +252,19 @@ preprod-dynamite-gamma-us-signaler-pa.clients6.google.com    A     300  142.251.
 └──╼ $./ShoC.sh -reverse 8.8.8.8
 8.8.8.8: dns.google
 ```
+
+### Resolve DNS
+
+```
+┌─[m0rph3u5@parrot]─[~/Scripts]
+└──╼ $./ShoC.sh -resolve google.com
+google.com: 192.178.155.102
+```
+
+### DNS
+
+```
+┌─[m0rph3u5@parrot]─[~/Scripts]
+└──╼ $./ShoC.sh -dns quad9.net
+A: 195.176.255.138
+```
