@@ -167,12 +167,12 @@ Ports: 443, 8443, 53, 853
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
 └──╼ $./ShoC.sh -geoping 8.8.8.8
-IP       Ville              Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés  Reçus  Perdu
-8.8.8.8  Clifton            US    true   0.993 ms  1.344 ms  2.004 ms  3        3      0.0%
-8.8.8.8  Amsterdam          NL    true   0.382 ms  0.836 ms  1.705 ms  3        3      0.0%
-8.8.8.8  London             GB    true   1.574 ms  1.932 ms  2.643 ms  3        3      0.0%
-8.8.8.8  Frankfurt am Main  DE    true   0.967 ms  1.351 ms  2.014 ms  3        3      0.0%
-8.8.8.8  Singapore          SG    true   0.972 ms  1.392 ms  2.21 ms   3        3      0.0%
+IP       Ville      Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés  Reçus  Perdu
+8.8.8.8  Clifton    US    true   0.882 ms  1.248 ms  1.978 ms  3        3      0.0%
+8.8.8.8  London     GB    true   0.973 ms  1.26 ms   1.809 ms  3        3      0.0%
+8.8.8.8  Amsterdam  NL    true   0.641 ms  1.265 ms  2.405 ms  3        3      0.0%
+8.8.8.8  Frankfurt  DE    true   0.999 ms  2.072 ms  4.188 ms  3        3      0.0%
+8.8.8.8  Singapore  SG    true   1.227 ms  2.006 ms  3.363 ms  3        3      0.0%
 ```
 
 ### Ping
