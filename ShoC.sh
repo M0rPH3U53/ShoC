@@ -258,5 +258,5 @@ fi
 if [[ "$*" == "-geodns"* ]]; then
      ip_dns="$2"
      res=$(curl https://geonet.shodan.io/api/geodns/${ip_dns} 2>/dev/null)
-     echo "${res}" | jq -r '["Type","IP","Ville","Pays"],(.[] as $l|$l.answers[]|[.type,.value,($l.from_loc.city|sub(" am Main$";"")),$l.from_loc.country])|@tsv' |column -t -s $'\t'
+     echo "${res}" | jq -r '["Type","IP","Ville","Pays"],(.[] as $l|$l.answers[]|[.type,.value,($l.from_loc.city|sub(" am Main$";"")),$l.from_loc.country])|@tsv' | column -t -s $'\t'
 fi
