@@ -90,7 +90,7 @@ if [[ "$*" == "-search"* ]]; then
      fi
 fi
 
-# Recupere la liste des CVE les plus recente
+# Liste des CVE les plus recente
 if [[ "$*" == "-news" ]]; then
      curl https://cvedb.shodan.io/cves >${PWD}/list-cves.json 2>/dev/null
      echo "💾 CVEs récentes --> ${PWD}/list-cves.json"
