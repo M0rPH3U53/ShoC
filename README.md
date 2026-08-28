@@ -270,7 +270,7 @@ google.com: 192.178.155.102
 └──╼ $./ShoC.sh -dns quad9.net
 A: 195.176.255.138
 ```
-GeoDNS
+### GeoDNS
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
