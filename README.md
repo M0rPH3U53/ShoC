@@ -274,9 +274,10 @@ A: 195.176.255.138
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
 └──╼ $./ShoC.sh -geodns quad9.net
-A 195.176.255.138 Clifton, US (40.8584,-74.1638)
-A 195.176.255.138 Frankfurt am Main, DE (50.1155,8.6842)
-A 195.176.255.138 London, GB (51.5085,-0.1257)
-A 195.176.255.138 Amsterdam, NL (52.3740,4.8897)
-A 195.176.255.138 Singapore, SG (1.3215,103.6957)
+Type  IP               Ville      Pays
+A     195.176.255.138  Clifton    US
+A     195.176.255.138  Amsterdam  NL
+A     195.176.255.138  Frankfurt  DE
+A     195.176.255.138  London     GB
+A     195.176.255.138  Singapore  SG
 ```
