@@ -106,8 +106,7 @@ if [[ "$*" == "-product"* ]]; then
      if [[ ${pruduct_cve} == ${no_info} ]]; then
           echo "[-] No found ${produit} !"
      else
-          echo "[+] CVE found !"
-          echo "💾 CVEs ${produit} --> ${PWD}/${produit}.json"
+          echo "[+] CVEs found ${produit} --> ${PWD}/${produit}.json"
      fi
 fi
 
