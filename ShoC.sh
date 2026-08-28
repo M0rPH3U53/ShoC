@@ -96,17 +96,24 @@ if [[ "$*" == "-news" ]]; then
      echo "💾 CVEs récentes --> ${PWD}/list-cves.json"
 fi
 
-# Recupere les CVEs par produit
+# CVEs par produit
 if [[ "$*" == "-product"* ]]; then
+
+     no_info=(*"No information available"*)
      produit="$2"
-     curl https://cvedb.shodan.io/cves?product=${produit} >${PWD}/${produit}.json 2>/dev/null
-     echo "[+] CVE found !"
-     echo "💾 CVEs ${produit} --> ${PWD}/${produit}.json"
+     pruduct_cve=$(curl https://cvedb.shodan.io/cves?product=${produit} > ${PWD}/${produit}-cves.json 2>/dev/null)
+
+     if [[ ${pruduct_cve} == ${no_info} ]]; then
+          echo "[-] No found ${produit} !"
+     else
+          echo "[+] CVE found !"
+          echo "💾 CVEs ${produit} --> ${PWD}/${produit}.json"
+     fi
 fi
 
 #---------------------------------------------------------- Host ----------------------------------------------------------#
 
-# Recherche détails de service (api)
+# Détails de service (api)
 if [[ "$*" == "-ip"* ]]; then
 
      error=(*'"error"'*)
@@ -126,7 +133,7 @@ if [[ "$*" == "-ip"* ]]; then
      fi
 fi
 
-# Recherche détails de service (no api)
+# Détails de service (no api)
 if [[ "$*" == "-host"* ]]; then
 
      user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.2277.83"
