@@ -248,7 +248,7 @@ if [[ "$*" == "-dns"* ]]; then
      echo "${result}" | jq -r '.answers[] | "\(.type): \(.value)"'
 fi
 
-# Recherche DNS à partir de plusieurs emplacements dans le monde
+# Recherche DNS (avec les sonde shodan)
 if [[ "$*" == "-geodns"* ]]; then
      ip_dns="$2"
      res=$(curl https://geonet.shodan.io/api/geodns/${ip_dns} 2>/dev/null)
