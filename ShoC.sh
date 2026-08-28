@@ -172,7 +172,7 @@ fi
 if [[ "$*" == "-geoping"* ]]; then
      ping_ip="$2"
      geoping_result=$(curl https://geonet.shodan.io/api/geoping/${ping_ip} 2>/dev/null)
-     echo "${geoping_result}" | jq -r '(["IP","Ville","Pays","Alive","Min RTT","Avg RTT","Max RTT","Envoyés","Reçus","Perdu"], (.[] | [.ip,.from_loc.city,.from_loc.country,(.is_alive|tostring),(.min_rtt|tostring)+" ms",(.avg_rtt|tostring)+" ms",(.max_rtt|tostring)+" ms",(.packets_sent|tostring),(.packets_received|tostring),(.packet_loss|tostring)+"%"])) | @tsv' | column -t -s $'\t'
+     echo "${geoping_result}" | jq -r '(["IP","Ville","Pays","Alive","Min RTT","Avg RTT","Max RTT","Envoyés","Reçus","Perdu"],(.[]|[.ip,(.from_loc.city|sub(" am Main$";"")),.from_loc.country,.is_alive,"\(.min_rtt) ms","\(.avg_rtt) ms","\(.max_rtt) ms",.packets_sent,.packets_received,"\(.packet_loss)%"]))|@tsv' | column -t -s $'\t'
 fi
 
 # Ping classique
