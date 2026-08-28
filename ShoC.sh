@@ -148,6 +148,8 @@ if [[ "$*" == "-nmap"* ]]; then
      ipadd="$2"
      nmap_ports=$(nmap --script shodan-api --script-args shodan-api.target=${ipadd},shodan-api.apikey=${api_key},shodan-api.outfile=${ipadd}.csv 2>/dev/null)
      clean=$(echo "${nmap_ports}" | grep "^|" | grep -Ev "Shodan|shodan|PORT.*PROTO|_" | sed 's/^| //' | awk '{print "[+] " $1 "/" $2 " --> "$3 $4}')
+     echo "🌐 Port & services"
+     echo " "
      echo "${clean}"
      echo " "
      echo "📋 Rapport --> ${PWD}/${ipadd}.csv" 
@@ -249,6 +251,7 @@ fi
 # Recherche DNS à partir de plusieurs emplacements dans le monde
 if [[ "$*" == "-geodns"* ]]; then
      ip_dns="$2"
-     curl https://geonet.shodan.io/api/geodns/${ip_dns} > ${PWD}/${ip_dns}-geodns.json 2>/dev/null
-     echo "💾 ${ip_dns} --> ${PWD}/${ip_dns}-geodns.json"
+     res=$(curl https://geonet.shodan.io/api/geodns/${ip_dns} 2>/dev/null)
+     echo "${res}" | jq -r '.[] | .answers[] as $answer | "\($answer.type) \($answer.value) \(.from_loc.city), \(.from_loc.country) (\(.from_loc.latlon))"'
+
 fi
