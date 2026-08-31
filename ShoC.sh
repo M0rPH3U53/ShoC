@@ -255,10 +255,19 @@ fi
 
 # Info dns
 if [[ "$*" == "-dns"* ]]; then
+
+     detail=(*"DNS lookup failed"*)
      dns="$2"
      result=$(curl https://geonet.shodan.io/api/dns/${dns} 2>/dev/null)
-     echo "${result}" | jq -r '.answers[] | "\(.type): \(.value)"'
+
+     if [[ ${result} == ${detail} ]]; then
+          echo "[-] No found ${dns} !"
+     else
+          echo "${result}" | jq -r '.answers[] | "\(.type): \(.value)"'
+          
+     fi
 fi
+
 
 # Recherche DNS (avec les sonde shodan)
 if [[ "$*" == "-geodns"* ]]; then
