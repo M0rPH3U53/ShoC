@@ -70,10 +70,16 @@ api_key="YOUR_API"
 
 # Port ouverts & vulenerabilité
 if [[ "$*" == "-vulns"* ]]; then
+
+     no_info=(*"No information available"*)
      ipas="$2"
-     curl https://internetdb.shodan.io/${ipas} > ${PWD}/${ipas}-vulns.json 2>/dev/null
-     echo "💾 Vulns ${ipas} --> ${PWD}/${ipas}-vulns.json"
-     dasel -f ${PWD}/${ipas}-vulns.json -r json -w csv | sed 's/\[//g; s/\]//g; s/ /;/g' >"${PWD}/${ipas}-vulns.csv"
+     res_vuln=$(curl https://internetdb.shodan.io/${ipas} 2>/dev/null)
+
+     if [[ ${res_vuln} == ${no_info} ]]; then
+          echo "[-] No found ${ipas} !"
+     else
+          echo "${res_vuln}" | jq -r '["IP","Hostnames","Ports","CPEs","Tags","Vulns"],[.ip,(.hostnames|join(", ")),(.ports|map(tostring)|join(", ")),(.cpes|join(", ")),(.tags|join(", ")),(.vulns|join(", "))] | @tsv' | column -t -s $'\t'
+     fi
 fi
 
 # Cherche les cve dans la base shodan
