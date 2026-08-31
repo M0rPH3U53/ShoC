@@ -268,7 +268,6 @@ if [[ "$*" == "-dns"* ]]; then
      fi
 fi
 
-
 # Recherche DNS (avec les sonde shodan)
 if [[ "$*" == "-geodns"* ]]; then
      ip_dns="$2"
