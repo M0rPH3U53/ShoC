@@ -24,7 +24,7 @@ Liste des API utiliser par Shodan dans ce script
 
 ```
 ┌─[m0rph3u5@parrot]─[~]
-└──╼ $sudo apt install curl nmap metasploit-framework dasel jq
+└──╼ $sudo apt install curl nmap metasploit-framework jq
 ```
 
 ## 🛠️ Commandes
