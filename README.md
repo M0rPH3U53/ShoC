@@ -67,7 +67,7 @@ Usage: ./ShoC COMMAND
    -geoping    Ping IP (shodan)
  
 ─────────────────────────────────────────────────
-                   🌐 Domaine                  
+                   🌍 Domaine                   
 ─────────────────────────────────────────────────
  
    -reverse    Recherche DNS inversée
