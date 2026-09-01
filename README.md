@@ -91,7 +91,7 @@ Usage: ./ShoC COMMAND
 # 👁️ Demo
 
 
-## Vulns
+## 🔒 Vulns
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -101,7 +101,7 @@ IP               Hostnames  Ports    CPEs                    Tags         Vulns
 
 ```
 
-## Search CVE
+## 🐞 Search CVE
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -125,7 +125,7 @@ References:
 - https://github.security.telekom.com/2026/04/pack2theroot-linux-local-privilege-escalation.html
 ```
 
-## IP
+## 🔗 IP
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -140,7 +140,7 @@ Ports: 443, 8443, 53, 853
 [+] 9.9.9.9 + d'info --> /home/m0rph3u5/Scripts/ShoC/9.9.9.9.json
 ```
 
-## Nmap
+## 👁️ Nmap
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts/ShoC]
@@ -163,7 +163,7 @@ Ports: 443, 8443, 53, 853
 📋 Rapport --> /home/m0rph3u5/Scripts/ShoC/1.1.1.1.csv
 ```
 
-## Metasploit
+## 🛡️ Metasploit
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts/ShoC]
@@ -174,7 +174,7 @@ Ports: 443, 8443, 53, 853
 [+] 9.9.9.9:853
 ```
 
-## Geoping
+## 🌍 Geoping
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -187,7 +187,7 @@ IP       Ville      Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés  Reçus 
 8.8.8.8  Singapore  SG    true   1.227 ms  2.006 ms  3.363 ms  3        3      0.0%
 ```
 
-## Ping
+## 🏓 Ping
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -195,7 +195,7 @@ IP       Ville      Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés  Reçus 
 IP       Ville        Pays  Alive  Min RTT   Avg RTT   Max RTT   Envoyés  Reçus  Perdu
 1.1.1.1  Santa Clara  US    true   1.223 ms  1.737 ms  2.342 ms  3        3      0.0%
 ```
-## API info
+## ℹ️ API info
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -209,7 +209,7 @@ Telnet : false
 Déverrouillé : false
 ```
 
-## Status
+## ℹ️ Status
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -221,7 +221,7 @@ Display name : null
 Créé : 2020-07-02T09:32:24.088000
 ```
 
-## Myip
+## 📡 Myip
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -230,7 +230,7 @@ Créé : 2020-07-02T09:32:24.088000
 ```
 
 
-## HTTP-Header
+## 📨 HTTP-Header
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -245,7 +245,7 @@ Ray : b34502844f6e0329-CDG
 ```
 
 
-## Domain
+## 🌍 Domain
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -275,7 +275,7 @@ preprod-dynamite-gamma-us-signaler-pa.clients6.google.com    A     300  142.251.
 
 ```
 
-## Reverse DNS
+## ↩️ Reverse DNS
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -283,7 +283,7 @@ preprod-dynamite-gamma-us-signaler-pa.clients6.google.com    A     300  142.251.
 8.8.8.8: dns.google
 ```
 
-## Resolve DNS
+## 🧭 Resolve DNS
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -291,14 +291,14 @@ preprod-dynamite-gamma-us-signaler-pa.clients6.google.com    A     300  142.251.
 google.com: 192.178.155.102
 ```
 
-## DNS
+## 📖 DNS
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
 └──╼ $./ShoC.sh -dns quad9.net
 A: 195.176.255.138
 ```
-## GeoDNS
+## 🗺️ GeoDNS
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
