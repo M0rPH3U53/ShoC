@@ -58,6 +58,7 @@ if [[ "$*" == "-help" ]]; then
      echo " "
      echo "   -help       Affiche les commandes"
      echo "   -myip       Affiche l'IP publique"
+     echo "   -headers    Affiche en-têtes HTTP"
      echo "   -status     Info du compte"
      echo "   -api-info   Info API"
      echo " "
@@ -206,6 +207,12 @@ fi
 if [[ "$*" == "-myip" ]]; then
      my_ip=$(curl -X GET https://api.shodan.io/tools/myip?key=${api_key} 2>/dev/null)
      echo "${my_ip}" | jq -r '.'
+fi
+
+# En-têtes HTTP
+if [[ "$*" == "-headers" ]]; then
+     header=$(curl -X GET https://api.shodan.io/tools/httpheaders?key=${api_key} 2>/dev/null)
+     echo "${header}" | jq -r '"Requête Id : \(.["X-Request-Id"])","IP : \(.["Cf-Connecting-Ip"])","Accept : \(.Accept)","User-Agent : \(.["User-Agent"])","Host : \(.Host)","Visitor : \(.["Cf-Visitor"] | fromjson | .scheme)","Ray : \(.["Cf-Ray"])"'
 fi
 
 #---------------------------------------------------------- Domaine ----------------------------------------------------------#
