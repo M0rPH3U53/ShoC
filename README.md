@@ -81,6 +81,7 @@ Usage: ./ShoC COMMAND
 ─────────────────────────────────────────────────
  
    -myip       Affiche l'IP publique
+   -headers    Affiche en-têtes HTTP
    -status     Info du compte
    -api-info   Info API
  
@@ -227,6 +228,23 @@ Créé : 2020-07-02T09:32:24.088000
 └──╼ $./ShoC.sh -myip
 185.191.239.248
 ```
+
+
+### HTTP-Header
+
+```
+┌─[m0rph3u5@parrot]─[~/Scripts]
+└──╼ $./ShoC.sh -headers
+Requête Id : abbfd68a-1994-4cbc-a7f2-a866805d8039
+IP : 185.191.239.248
+Accept : */*
+User-Agent : curl/7.10.1
+Host : api.shodan.io
+Visitor : https
+Ray : b34502844f6e0329-CDG
+```
+
+
 ### Domain
 
 ```
