@@ -98,7 +98,6 @@ Usage: ./ShoC COMMAND
 └──╼ $/ShoC.sh -vulns 190.176.255.138
 IP               Hostnames  Ports    CPEs                    Tags         Vulns
 190.176.255.138             80, 443  cpe:/a:f5:nginx:1.22.1  eol-product  CVE-2025-23419, CVE-2023-44487
-
 ```
 
 ## 🐞 Search CVE
