@@ -88,10 +88,10 @@ Usage: ./ShoC COMMAND
 ─────────────────────────────────────────────────
 ```
 
-## 👁️ Demo
+# 👁️ Demo
 
 
-### Vulns
+## Vulns
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
@@ -101,7 +101,7 @@ IP               Hostnames  Ports    CPEs                    Tags         Vulns
 
 ```
 
-### Search CVE
+## Search CVE
 
 ```
 ┌─[m0rph3u5@parrot]─[~/Scripts]
